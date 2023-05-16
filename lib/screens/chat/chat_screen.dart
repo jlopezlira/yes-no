@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no/widgets/chat/my_message_bubble.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -6,20 +7,41 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Mi amor ❤️'),
-          centerTitle: false,
-          leading: const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage("https://randomuser.me/api/portraits/women/88.jpg"),
-            ),
-          ) ,
+      appBar: AppBar(
+        title: const Text('Juan Mecanico 🚗'),
+        centerTitle: false,
+        leading: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://randomuser.me/api/portraits/women/88.jpg"),
+          ),
         ),
-        body: Center(
-          child: FilledButton(onPressed: () {  },
-          child: const Text('Hello Yes/No App!')),
+      ),
+      body: _ChatView(),
+    );
+  }
+}
+
+class _ChatView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Expanded(
+                child: ListView.builder(
+              itemCount: 100,
+              itemBuilder: (BuildContext context, int index) {
+                return const MyMessageBubble();
+              },
+            )),
+            const Text('Mundo')
+          ],
         ),
-      );
+      ),
+    );
   }
 }
