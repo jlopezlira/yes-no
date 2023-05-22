@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class MessageField extends StatelessWidget {
-  const MessageField({super.key});
+  final ValueChanged<String> onValue;
+
+  const MessageField({super.key, required this.onValue});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +22,14 @@ class MessageField extends StatelessWidget {
         onTapOutside: (event) => focusNode.unfocus(),
         decoration: InputDecoration(
           filled: true,
-          hintText: 'Type a message and end with a "??"',
+          hintText: 'Type a message and end with a "?"',
           suffixIcon: IconButton(
             icon: const Icon(Icons.send),
             onPressed: () {
               final message = textController.text;
               textController.clear();
               focusNode.requestFocus();
-              print(message);
+              onValue(message);
             },
           ),
           border: OutlineInputBorder(
