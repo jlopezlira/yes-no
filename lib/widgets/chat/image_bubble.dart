@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ImageBubble extends StatelessWidget {
-  const ImageBubble({super.key});
+  const ImageBubble(this.imageUrl, {super.key});
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        'https://yesno.wtf/assets/no/12-dafd576be23d3768641340f76658ddfe.gif',
+        imageUrl,
         width: size.width * 0.8,
         height: 150,
         fit: BoxFit.cover,
