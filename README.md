@@ -1,6 +1,13 @@
-# yes_no
+# Yes / No App
 
-A new Flutter project.
+- Simple application that simulates a chat.
+
+- http calls
+- State Management
+- Form Management
+
+![simulator_screenshot_90493592-5809-4975-8AF7-45FA82056EE8](https://github.com/jlopezlira/yes-no/assets/679659/331c590c-7b06-4435-86af-67ba153d7de8)
+
 
 ## Getting Started
 
